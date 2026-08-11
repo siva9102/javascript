@@ -1,0 +1,279 @@
+// ==================================================
+// 1. VARIABLES – STUDENT DETAILS
+// ==================================================
+
+const course = "JavaScript";
+let studentName = "Siva Kumar";
+var age = 22;
+let mark = 85;
+
+console.log("Student Name:", studentName);
+console.log("Age:", age);
+console.log("Course:", course);
+console.log("Mark:", mark);
+
+
+// ==================================================
+// 2. USER INPUT
+// ==================================================
+
+let userName = prompt("Enter your name:");
+let userAge = prompt("Enter your age:");
+
+console.log("Name:", userName);
+alert("Your age is: " + userAge);
+
+
+// ==================================================
+// 3. DATA TYPES
+// ==================================================
+
+let stringValue = "Hello JavaScript";
+let numberValue = 100;
+let booleanValue = true;
+let undefinedValue;
+let nullValue = null;
+
+console.log("String Value:", stringValue);
+console.log("String Type:", typeof stringValue);
+
+console.log("Number Value:", numberValue);
+console.log("Number Type:", typeof numberValue);
+
+console.log("Boolean Value:", booleanValue);
+console.log("Boolean Type:", typeof booleanValue);
+
+console.log("Undefined Value:", undefinedValue);
+console.log("Undefined Type:", typeof undefinedValue);
+
+console.log("Null Value:", nullValue);
+console.log("Null Type:", typeof nullValue);
+
+
+// ==================================================
+// 4. ARRAY – SHOPPING LIST
+// ==================================================
+
+let shoppingList = [
+    "Shirt",
+    "Pant",
+    "Shoes",
+    "Watch",
+    "Bag",
+    "Cap"
+];
+
+console.log("First Product:", shoppingList[0]);
+console.log("Third Product:", shoppingList[2]);
+console.log("Last Product:", shoppingList[shoppingList.length - 1]);
+console.log("Complete Array:", shoppingList);
+
+
+// ==================================================
+// 5. OBJECT – EMPLOYEE DETAILS
+// ==================================================
+
+let employee = {
+    name: "Siva",
+    age: 25,
+    role: "Software Tester",
+    salary: 30000
+};
+
+console.log("Employee Name:", employee.name);
+console.log("Employee Age:", employee.age);
+console.log("Employee Role:", employee.role);
+console.log("Employee Salary:", employee.salary);
+
+
+// ==================================================
+// 6. ARITHMETIC OPERATOR – BILL CALCULATOR
+// ==================================================
+
+let productPrice = 500;
+let quantity = 3;
+
+let totalPrice = productPrice * quantity;
+let discount = 100;
+let finalAmount = totalPrice - discount;
+
+console.log("Product Price:", productPrice);
+console.log("Quantity:", quantity);
+console.log("Total Price:", totalPrice);
+console.log("Discount:", discount);
+console.log("Final Amount:", finalAmount);
+
+// Using + and /
+let additionalAmount = 50 + 50;
+let dividedAmount = 500 / 2;
+
+console.log("Addition:", additionalAmount);
+console.log("Division:", dividedAmount);
+
+
+// ==================================================
+// 7. COMPARISON OPERATORS
+// ==================================================
+
+console.log(25 > 20);
+console.log(15 < 10);
+console.log(50 == "50");
+console.log(50 === "50");
+console.log(100 != "100");
+console.log(100 !== "100");
+
+
+// ==================================================
+// 8. LOGICAL OPERATORS
+// ==================================================
+
+// Expression 1
+console.log(10 > 5 && 20 > 15 || 5 > 10);
+
+// Expression 2
+console.log(10 < 5 || 20 >= 20 && 5 == "5");
+
+// Expression 3
+console.log(15 === "15" || 10 > 5 && 8 < 3);
+
+// Expression 4
+console.log(20 >= 20 && 5 !== "5" || 10 < 5);
+
+// Expression 5
+console.log(25 < 20 || 30 == "30" && 10 >= 10);
+
+
+// ==================================================
+// 9. TERNARY OPERATOR – LOGIN
+// ==================================================
+
+let passwordCorrect = true;
+
+let loginMessage = passwordCorrect
+    ? "Login successful"
+    : "Invalid password";
+
+console.log(loginMessage);
+
+
+// ==================================================
+// 10. TYPE CASTING – MARKS
+// ==================================================
+
+let mark1 = "80";
+let mark2 = "70";
+
+let numberMark1 = Number(mark1);
+let numberMark2 = Number(mark2);
+
+let totalMarks = numberMark1 + numberMark2;
+
+console.log("Mark 1:", numberMark1);
+console.log("Mark 2:", numberMark2);
+console.log("Total Marks:", totalMarks);
+
+
+// ==================================================
+// 11. VOTING ELIGIBILITY
+// ==================================================
+
+let votingAge = 20;
+
+if (votingAge >= 18) {
+    console.log("You can vote");
+} else {
+    console.log("You cannot vote");
+}
+
+
+// ==================================================
+// 12. STUDENT GRADE
+// ==================================================
+
+let studentMark = 85;
+
+if (studentMark > 100 || studentMark < 0) {
+    console.log("Invalid Mark");
+} else if (studentMark >= 90) {
+    console.log("A Grade");
+} else if (studentMark >= 75) {
+    console.log("B Grade");
+} else if (studentMark >= 50) {
+    console.log("C Grade");
+} else {
+    console.log("Fail");
+}
+
+
+// ==================================================
+// 13. TIME GREETING
+// ==================================================
+
+let time = 15;
+
+if (time >= 1 && time <= 6) {
+    console.log("Early Morning");
+} else if (time >= 7 && time <= 12) {
+    console.log("Good Morning");
+} else if (time >= 13 && time <= 15) {
+    console.log("Good Afternoon");
+} else if (time >= 16 && time <= 19) {
+    console.log("Good Evening");
+} else if (time >= 20 && time <= 24) {
+    console.log("Good Night");
+} else {
+    console.log("Invalid Time");
+}
+
+
+// ==================================================
+// 14. NESTED IF – JOB ELIGIBILITY
+// ==================================================
+
+let candidateAge = 25;
+let candidateHeight = 175;
+let candidateWeight = 75;
+
+if (candidateAge >= 21) {
+
+    if (candidateHeight >= 170) {
+
+        if (candidateWeight >= 70) {
+            console.log("Candidate is eligible for the job");
+        } else {
+            console.log("Candidate is not eligible: Weight must be 70 kg or above");
+        }
+
+    } else {
+        console.log("Candidate is not eligible: Height must be 170 cm or above");
+    }
+
+} else {
+    console.log("Candidate is not eligible: Age must be 21 or above");
+}
+
+
+// ==================================================
+// 15. SWITCH – TRAFFIC LIGHT
+// ==================================================
+
+let trafficLight = "green";
+
+switch (trafficLight) {
+
+    case "red":
+        console.log("Stop the vehicle");
+        break;
+
+    case "yellow":
+        console.log("Get ready");
+        break;
+
+    case "green":
+        console.log("Go");
+        break;
+
+    default:
+        console.log("Invalid traffic light");
+        break;
+}
