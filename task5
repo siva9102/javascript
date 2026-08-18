@@ -1,0 +1,385 @@
+// Level 1 - Basics
+
+// Task 1 - Student Details
+let name = "Siva";
+let age = 22;
+let department = "Computer Science";
+let cgpa = 8.5;
+
+console.log("Name: " + name);
+console.log("Age: " + age);
+console.log("Department: " + department);
+console.log("CGPA: " + cgpa);
+
+console.log(`Name: ${name}`);
+console.log(`Age: ${age}`);
+console.log(`Department: ${department}`);
+console.log(`CGPA: ${cgpa}`);
+
+
+// Task 2 - Simple Calculator
+let a = 20;
+let b = 10;
+
+console.log("Addition: " + (a + b));
+console.log("Subtraction: " + (a - b));
+console.log("Multiplication: " + (a * b));
+console.log("Division: " + (a / b));
+console.log("Modulus: " + (a % b));
+console.log("Power: " + (a ** b));
+
+
+// Task 3 - Age Checker
+let votingAge = Number(prompt("Enter your age:"));
+
+if (votingAge >= 18) {
+    console.log("Eligible to vote");
+} else {
+    console.log("Not eligible");
+}
+
+
+// Level 2 - Conditions
+
+// Task 4 - Student Grade
+let marks = Number(prompt("Enter your marks:"));
+
+if (marks >= 90 && marks <= 100) {
+    console.log("A");
+} else if (marks >= 80 && marks <= 89) {
+    console.log("B");
+} else if (marks >= 70 && marks <= 79) {
+    console.log("C");
+} else if (marks >= 60 && marks <= 69) {
+    console.log("D");
+} else if (marks >= 0 && marks < 60) {
+    console.log("Fail");
+} else {
+    console.log("Invalid marks");
+}
+
+
+// Task 5 - Login System
+let correctUsername = "admin";
+let correctPassword = "1234";
+
+let username = prompt("Enter username:");
+let password = prompt("Enter password:");
+
+if (username === correctUsername && password === correctPassword) {
+    console.log("Login successful");
+} else if (username !== correctUsername && password !== correctPassword) {
+    console.log("Invalid credentials");
+} else if (username !== correctUsername) {
+    console.log("Invalid username");
+} else {
+    console.log("Invalid password");
+}
+
+
+// Task 6 - ATM Withdrawal
+let balance = 10000;
+let withdrawalAmount = Number(prompt("Enter withdrawal amount:"));
+
+if (withdrawalAmount <= 0) {
+    console.log("Amount must be greater than 0");
+} else if (withdrawalAmount > balance) {
+    console.log("Insufficient balance");
+} else if (withdrawalAmount % 100 !== 0) {
+    console.log("Amount must be a multiple of ₹100");
+} else {
+    balance = balance - withdrawalAmount;
+    console.log("Withdrawal successful");
+    console.log("Remaining balance: ₹" + balance);
+}
+
+
+// Level 3 - Loops
+
+// Task 7 - Multiplication Table
+let tableNumber = Number(prompt("Enter a number:"));
+
+for (let i = 1; i <= 10; i++) {
+    console.log(`${tableNumber} x ${i} = ${tableNumber * i}`);
+}
+
+
+// Task 8 - Reverse Number
+let number = Number(prompt("Enter a number:"));
+let reverse = 0;
+
+while (number > 0) {
+    let digit = number % 10;
+    reverse = reverse * 10 + digit;
+    number = Math.floor(number / 10);
+}
+
+console.log("Reverse: " + reverse);
+
+
+// Task 9 - OTP System
+let correctOTP = 1234;
+let attempts = 0;
+let verified = false;
+
+while (attempts < 3) {
+    let enteredOTP = Number(prompt("Enter OTP:"));
+    attempts++;
+
+    if (enteredOTP === correctOTP) {
+        console.log("OTP verified");
+        verified = true;
+        break;
+    } else {
+        if (attempts < 3) {
+            console.log("Try again");
+        }
+    }
+}
+
+if (!verified) {
+    console.log("Account blocked");
+}
+
+
+// Level 4 - Functions
+
+// Task 10 - Salary Calculator
+function calculateSalary(basicSalary, bonus) {
+    return basicSalary + bonus;
+}
+
+console.log(calculateSalary(30000, 5000));
+
+
+// Task 11 - Calculator Functions
+function add(x, y) {
+    return x + y;
+}
+
+function subtract(x, y) {
+    return x - y;
+}
+
+function multiply(x, y) {
+    return x * y;
+}
+
+function divide(x, y) {
+    return x / y;
+}
+
+console.log("Add: " + add(20, 10));
+console.log("Subtract: " + subtract(20, 10));
+console.log("Multiply: " + multiply(20, 10));
+console.log("Divide: " + divide(20, 10));
+
+
+// Task 12 - Eligibility Function
+function checkEligibility(age, height, weight) {
+    if (age >= 21 && height >= 170 && weight >= 70) {
+        return "Eligible";
+    } else {
+        return "Not eligible";
+    }
+}
+
+console.log(checkEligibility(25, 175, 75));
+
+
+// Level 5 - Array Practice
+
+// Task 13 - Shopping Cart
+let cart = ["Laptop", "Mouse", "Keyboard"];
+
+cart.push("Monitor");
+cart.splice(cart.indexOf("Mouse"), 1);
+cart.unshift("Headset");
+cart.pop();
+
+console.log(cart);
+
+
+// Task 14 - Find Maximum
+let numbers = [10, 45, 23, 89, 12, 67];
+let maximum = numbers[0];
+
+for (let i = 1; i < numbers.length; i++) {
+    if (numbers[i] > maximum) {
+        maximum = numbers[i];
+    }
+}
+
+console.log("Maximum: " + maximum);
+
+
+// Task 15 - Remove Duplicate Values
+let duplicateNumbers = [1, 2, 3, 2, 4, 1, 5];
+let uniqueNumbers = [];
+
+duplicateNumbers.forEach(function (number) {
+    if (!uniqueNumbers.includes(number)) {
+        uniqueNumbers.push(number);
+    }
+});
+
+console.log(uniqueNumbers);
+
+
+// Level 6 - Higher-Order Functions
+
+// Task 16 - Employee Salary Filter
+let employees = [
+    { name: "Arun", salary: 30000 },
+    { name: "Bala", salary: 50000 },
+    { name: "Kumar", salary: 25000 },
+    { name: "Ravi", salary: 70000 }
+];
+
+let highSalaryEmployees = employees.filter(function (employee) {
+    return employee.salary >= 40000;
+});
+
+console.log(highSalaryEmployees);
+
+
+// Task 17 - Increase Salary
+let increasedSalaries = employees.map(function (employee) {
+    if (employee.salary < 40000) {
+        return {
+            ...employee,
+            salary: employee.salary + 5000
+        };
+    } else {
+        return {
+            ...employee,
+            salary: employee.salary + 10000
+        };
+    }
+});
+
+console.log(increasedSalaries);
+
+
+// Task 18 - Total Salary
+let totalSalary = employees.reduce(function (total, employee) {
+    return total + employee.salary;
+}, 0);
+
+console.log("Total Salary: ₹" + totalSalary);
+
+
+// Task 19 - Check Employee
+let earnsAbove100000 = employees.some(function (employee) {
+    return employee.salary > 100000;
+});
+
+let allEarnAtLeast20000 = employees.every(function (employee) {
+    return employee.salary >= 20000;
+});
+
+console.log("Anyone earning above ₹100000: " + earnsAbove100000);
+console.log("Everyone earning at least ₹20000: " + allEarnAtLeast20000);
+
+
+// Interview Challenge
+
+// Task 20 - Employee Management Mini Program
+let employeeList = [
+    {
+        id: 101,
+        name: "Arun",
+        department: "IT",
+        salary: 35000
+    },
+    {
+        id: 102,
+        name: "Bala",
+        department: "HR",
+        salary: 45000
+    },
+    {
+        id: 103,
+        name: "Kumar",
+        department: "IT",
+        salary: 60000
+    }
+];
+
+
+// Task 20.1 - Print All Employee Names
+employeeList.forEach(function (employee) {
+    console.log(employee.name);
+});
+
+
+// Task 20.2 - Get IT Employees
+let itEmployees = employeeList.filter(function (employee) {
+    return employee.department === "IT";
+});
+
+console.log(itEmployees);
+
+
+// Task 20.3 - Increase Every Salary by 10%
+let updatedEmployees = employeeList.map(function (employee) {
+    return {
+        ...employee,
+        salary: employee.salary * 1.10
+    };
+});
+
+console.log(updatedEmployees);
+
+
+// Task 20.4 - Find Employee with Salary ₹45000
+let employee45000 = employeeList.find(function (employee) {
+    return employee.salary === 45000;
+});
+
+console.log(employee45000);
+
+
+// Task 20.5 - Calculate Total Salary
+let employeeTotalSalary = employeeList.reduce(function (total, employee) {
+    return total + employee.salary;
+}, 0);
+
+console.log("Total Salary: ₹" + employeeTotalSalary);
+
+
+// Task 20.6 - Check Anyone Earns Above ₹50000
+let above50000 = employeeList.some(function (employee) {
+    return employee.salary > 50000;
+});
+
+console.log("Anyone earns above ₹50000: " + above50000);
+
+
+// Task 20.7 - Check Everyone Earns Above ₹20000
+let above20000 = employeeList.every(function (employee) {
+    return employee.salary > 20000;
+});
+
+console.log("Everyone earns above ₹20000: " + above20000);
+
+
+// Task 20.8 - Sort Employees Highest to Lowest
+let sortedEmployees = [...employeeList].sort(function (a, b) {
+    return b.salary - a.salary;
+});
+
+console.log(sortedEmployees);
+
+
+// Task 20.9 - Destructure Employee Name and Salary
+employeeList.forEach(function ({ name, salary }) {
+    console.log("Name: " + name);
+    console.log("Salary: ₹" + salary);
+});
+
+
+// Task 20.10 - Spread Operator to Create New Employee List
+let newEmployeeList = [...employeeList];
+
+console.log(newEmployeeList);
