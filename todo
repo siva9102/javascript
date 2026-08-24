@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple ToDo List</title>
+</head>
+<body>
+
+    <h2>My ToDo List</h2>
+
+    <input type="text" id="taskInput" placeholder="Enter a task">
+    <button id="addBtn">Add</button>
+
+    <p id="message"></p>
+
+    <ol id="taskList"></ol>
+
+    <script>
+
+        // Select elements
+        let input = document.querySelector("#taskInput");
+        let addButton = document.querySelector("#addBtn");
+        let taskList = document.querySelector("#taskList");
+        let message = document.querySelector("#message");
+
+        // Add button click
+        addButton.addEventListener("click", function () {
+
+            // Check if input is empty
+            if (input.value == "") {
+
+                message.innerText = "Enter a task";
+
+            } else {
+
+                // Create new list item
+                let li = document.createElement("li");
+
+                // Add task text
+                li.innerText = input.value + " ";
+
+                // Create Delete button
+                let deleteButton = document.createElement("button");
+
+                // Add Delete text
+                deleteButton.innerText = "Delete";
+
+                // Delete button click
+                deleteButton.addEventListener("click", function () {
+
+                    li.remove();
+
+                });
+
+                // Add Delete button inside li
+                li.append(deleteButton);
+
+                // Add li inside ol
+                taskList.append(li);
+
+                // Clear input
+                input.value = "";
+
+                // Clear message
+                message.innerText = "";
+            }
+
+        });
+
+    </script>
+
+</body>
+</html>
