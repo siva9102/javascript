@@ -1,0 +1,125 @@
+######### Html ####################
+<div class="controls">
+<input type="text" id="searchInput" placeholder="Search product">
+<button id="searchBtn">Search</button>
+<button id="lowHigh">Low → High</button>
+<button id="highLow">High → Low</button>
+</div>
+<h2 id="productCount"></h2>
+<div id="categoryButtons"></div>
+<div class="apicard"></div>
+
+############## CSS   ################
+.apicard {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+gap: 20px;
+margin-top: 20px;
+}
+.card {
+border: 1px solid #ddd;
+padding: 15px;\
+border-radius: 10px;
+text-align: center;
+}
+ .card img {
+width: 150px;
+height: 150px;
+object-fit: contain;
+}
+.card h3 
+font-size: 18px;
+}
+.card p {
+font-size: 14px;
+}
+.card button {
+padding: 8px 15px;
+background: blue;
+color: white;
+border: none;
+cursor: pointer;
+}
+
+#### JAVA SCRIPT######################
+const apiCard = document.querySelector(".apicard");
+const productCount = document.getElementById("productCount");
+const categoryButtons = document.getElementById("categoryButtons");
+
+let allProducts = [];
+
+fetch("https://fakestoreapi.com/products")
+  .then(res => res.json())
+  .then(jsData => {
+
+    allProducts = jsData;
+
+    // Task 5 - Product Count
+    productCount.innerHTML = `Total Products: ${jsData.length}`;
+
+    // Task 8 - Dynamic Category Buttons
+    createCategoryButtons(jsData);
+
+    // Task 1 - Display Products
+    displayProducts(jsData);
+  });
+
+
+// Display Function
+function displayProducts(products) {
+
+  apiCard.innerHTML = "";
+
+  products.forEach(product => {
+
+    apiCard.innerHTML += `
+      <div class="card">
+        ${product.image}
+        <h3>${product.title}</h3>
+        <h4>${product.category}</h4>
+        <h2>$${product.price}</h2>
+        <p>${product.description}</p>
+        <button>View Product</button>
+      </div>
+    `;
+  });
+
+}
+// Task 2 - First 5 Products
+displayProducts(allProducts.slice(0, 5));
+// Task 3 - Price > $50
+ let expensiveProducts = allProducts.filter(product => product.price > 50 );displayProducts(expensiveProducts);
+// Task 4 - Men's Clothing Only
+let menProducts = allProducts.filter( product => product.category === "men's clothing" ); displayProducts(menProducts);
+
+// Task 6 - Search Product
+document.getElementById("searchBtn").addEventListener("click", () => {let searchValue = document.getElementById("searchInput").value.toLowerCase();
+  let result = allProducts.filter(product => product.title.toLowerCase().includes(searchValue)
+  );
+  displayProducts(result); 
+});
+
+// Task 7 - Sort Products
+document.getElementById("lowHigh").addEventListener("click", () => {let sorted = [...allProducts].sort((a, b) => a.price - b.price);
+ displayProducts(sorted);
+});
+document.getElementById("highLow").addEventListener("click", () => { let sorted = [...allProducts].sort((a, b) => b.price - a.price  );
+  displayProducts(sorted);
+});
+
+// Task 8 - Dynamic Categories
+function createCategoryButtons(products) {let categories = ["All",...new Set(products.map(item => item.category))];
+  categories.forEach(category => {let btn = document.createElement("button");
+    btn.innerText = category;
+    btn.addEventListener("click", () => {if (category === "All") {
+        displayProducts(allProducts);
+      } else {
+        let filtered = allProducts.filter(
+          product => product.category === category
+        );
+       displayProducts(filtered);
+      }
+    });
+    categoryButtons.appendChild(btn);
+  });
+}
